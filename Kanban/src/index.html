@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="logo"></div>
+
+        <nav>
+            <a class="active">Início</a>
+            <a>Dashboard</a>
+        </nav>
+
+        <div class="search-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input class="search" placeholder="Informe o nº de OS…" />
+        </div>
+    </header>
+
+    <main class="kanban">
+
+        <div class="modal">
+            <div class="content">
+                <h2>Adicionar nova OS</h2>
+                <form id="add-card-form">
+                    <label for="client-id">Número da OS:</label>
+                    <input type="text" id="client-id" name="client-id" required>
+
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="">Selecione o status</option>
+                        <option value="em-separacao">Em Separação</option>
+                        <option value="enviados">Enviados</option>
+                        <option value="concluidos">Concluídos</option>
+                    </select>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="save-btn">Salvar</button>
+                        <button type="button" class="cancel-btn">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- COLUNA: Em Separação -->
+        <section class="column">
+            <div class="column-header">
+                <h2>Em Separação</h2>
+                <span class="count">1</span>
+            </div>
+
+            <div class="cards-container" id="em-separacao"></div>
+            <!-- <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag gray">Dentro do Prazo</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date gray"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div> -->
+
+            <button class="add-card"><span class="plus">＋</span> Adicionar cartão</button>
+        </section>
+
+        <!-- COLUNA: Enviados -->
+        <section class="column">
+            <div class="column-header">
+                <h2>Enviados</h2>
+                <span class="count">4</span>
+            </div>
+
+            <div class="cards-container" id="enviados"></div>
+            <!-- <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag gray">Dentro do Prazo</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date gray"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag yellow">Prazo próximo</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date yellow"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag blue">Reagendado</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date blue"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag red">Atrasado</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date red"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div> -->
+        </section>
+
+        <!-- COLUNA: Concluídos -->
+        <section class="column">
+            <div class="column-header">
+                <h2>Concluídos</h2>
+                <span class="count">4</span>
+            </div>
+
+            <div class="cards-container" id="concluidos"></div>
+            <!-- <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag green">Entregue</span>
+                        <span class="tag gray">Dentro do Prazo</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date green"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag green">Entregue</span>
+                        <span class="tag yellow">Prazo próximo</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date green"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag green">Entregue</span>
+                        <span class="tag blue">Reagendado</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date green"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <div class="tags">
+                        <span class="tag green">Entregue</span>
+                        <span class="tag red">Atrasado</span>
+                    </div>
+                    <div class="card-actions">
+                        <button title="Calendário">📅</button>
+                        <button title="Mais opções">⋯</button>
+                    </div>
+                </div>
+                <div class="card-client">
+                    <div class="card-radio"></div>
+                    <div class="card-info">
+                        <span class="client-label">Cliente</span>
+                        <span class="client-id">57000</span>
+                    </div>
+                </div>
+                <div class="date green"><span class="clock-icon">⏱</span> 01 de Jan.</div>
+            </div> -->
+        </section>
+
+    </main>
+
+    <script>
+        document.querySelectorAll('.card-radio').forEach(radio => {
+            radio.addEventListener('click', () => {
+                radio.classList.toggle('checked');
+            });
+        });
+    </script>
+    
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

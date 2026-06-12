@@ -1,0 +1,42 @@
+[
+  {
+    "id": "",
+    "cliente": "",
+    "os": "",
+    "itens": "",
+    "finalidade": "",
+
+    "dataEnvio": "",
+
+    "dataOriginalRetorno": "",
+    "dataPrevistaRetorno": "",
+    "dataRealRetorno": null,
+
+    "reprogramado": false,
+    "entregueComAtraso": false,
+
+    "coluna": "em-separacao",
+
+    "observacoes": ""
+  },
+  {
+    "id": "1",
+    "cliente": "Teste",
+    "os": "12000",
+    "itens": "Eixo",
+    "finalidade": "Balancear",
+
+    "dataEnvio": "2026-06-11",
+
+    "dataOriginalRetorno": "2026-06-11",
+    "dataPrevistaRetorno": "2026-06-11",
+    "dataRealRetorno": null,
+
+    "reprogramado": false,
+    "entregueComAtraso": false,
+
+    "coluna": "enviados",
+
+    "observacoes": ""
+  }
+]
